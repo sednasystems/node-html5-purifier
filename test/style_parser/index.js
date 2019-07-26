@@ -24,7 +24,7 @@ describe('library - html purifier - style parser', function() {
         "#ugc-link, #ugc-link2 #ugc-link3 #ugc-link4 #ugc-link5, p#ugc-test { margin-top:0; }" +
         "</style>";
 
-      styleParser.parsePurified(clean, PREFIX, POSTFIX, function(err, stripped) {
+      styleParser.parsePurified(clean, PREFIX, POSTFIX, null, function(err, stripped) {
         expect(stripped).to.equal(expected);
         done();
       });
@@ -34,7 +34,7 @@ describe('library - html purifier - style parser', function() {
       var expected = '<style>.first.second.third {\n  margin-top: 0;\n}</style>';
       var clean = '<style>.ugc-first.ugc-second.ugc-third {margin-top: 0;}</style>';
 
-      styleParser.parsePurified(clean, PREFIX, POSTFIX, function(err, stripped) {
+      styleParser.parsePurified(clean, PREFIX, POSTFIX, null, function(err, stripped) {
         expect(stripped).to.equal(expected);
         done();
       });
@@ -44,7 +44,7 @@ describe('library - html purifier - style parser', function() {
       var expected = '<style>p.orig,\ndiv.test .link {\n  margin-top: 0;\n}</style>';
       var clean = '<style>p.ugc-orig, div.ugc-test .ugc-link {margin-top: 0;}</style>';
 
-      styleParser.parsePurified(clean, PREFIX, POSTFIX, function(err, stripped) {
+      styleParser.parsePurified(clean, PREFIX, POSTFIX, null, function(err, stripped) {
         expect(stripped).to.equal(expected);
         done();
       });
@@ -54,7 +54,7 @@ describe('library - html purifier - style parser', function() {
       var expected = '<style>#link,\n#link2 #link3 #link4 #link5,\np#test {\n  margin-top: 0;\n}</style>';
       var clean = '<style>#ugc-link, #ugc-link2 #ugc-link3 #ugc-link4 #ugc-link5, p#ugc-test { margin-top: 0; }</style>';
 
-      styleParser.parsePurified(clean, PREFIX, POSTFIX, function(err, stripped) {
+      styleParser.parsePurified(clean, PREFIX, POSTFIX, null, function(err, stripped) {
         expect(stripped).to.equal(expected);
         done();
       });
@@ -62,7 +62,7 @@ describe('library - html purifier - style parser', function() {
 
     it('should support multiple style tags', function(done) {
       var html = '<style>P.ugc-p5 { margin-left: 1in; }</style><style>P.ugc-p6 { margin-left: 1in; }</style>';
-      styleParser.parsePurified(html, PREFIX, POSTFIX, function(err, res) {
+      styleParser.parsePurified(html, PREFIX, POSTFIX, null, function(err, res) {
         expect(res).to.equal('<style>P.p5 {\n  margin-left: 1in;\n}\n\nP.p6 {\n  margin-left: 1in;\n}</style>');
         done();
       });

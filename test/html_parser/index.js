@@ -25,7 +25,7 @@ describe('library - html purifier - html parser - parsePurified', function() {
     var dirty = '<span class="ugc ugc-ugc ugc-ugc-moz-cite-prefix ugc-test ugc">my string</span>';
     var expected = '<span class="moz-cite-prefix test">my string</span>';
 
-    parser.parsePurified(dirty, PREFIX, POSTFIX, function(err, namespaced) {
+    parser.parsePurified(dirty, PREFIX, POSTFIX, null, function(err, namespaced) {
       expect(namespaced).to.be.equal(expected);
       done();
     });
@@ -36,7 +36,7 @@ describe('library - html purifier - html parser - parsePurified', function() {
     var dirty = '<span class="ugc ugc-ugc ugc-ugc-moz-cite-prefix ugc-test ugc">my string has ugc</span>';
     var expected = '<span class="moz-cite-prefix test">my string has ugc</span>';
 
-    parser.parsePurified(dirty, PREFIX, POSTFIX, function(err, namespaced) {
+    parser.parsePurified(dirty, PREFIX, POSTFIX, null, function(err, namespaced) {
       expect(namespaced).to.be.equal(expected);
       done();
     });
@@ -48,7 +48,7 @@ describe('library - html purifier - html parser - parsePurified', function() {
     var dirty = '<span class="ugc ugc-ugc ugc-ugc ugc ugc">my string has ugc</span>';
     var expected = '<span>my string has ugc</span>';
 
-    parser.parsePurified(dirty, PREFIX, POSTFIX, function(err, namespaced) {
+    parser.parsePurified(dirty, PREFIX, POSTFIX, null, function(err, namespaced) {
       expect(namespaced).to.be.equal(expected);
       done();
     });
@@ -61,7 +61,7 @@ describe('library - html purifier - html parser - parsePurified', function() {
 
       var expected = '<p class="moz-cite-prefix MsoNormal">Text</p>';
 
-      parser.parsePurified(clean, PREFIX, POSTFIX, function(err, stripped) {
+      parser.parsePurified(clean, PREFIX, POSTFIX, null, function(err, stripped) {
         expect(stripped).to.equal(expected);
         done();
       });
