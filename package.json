@@ -37,6 +37,7 @@
     "istanbul": "0.4.3",
     "mocha": "2.4.5",
     "sinon": "1.17.3"
+    "winston": "3.2.1"
   },
   "main": "lib/index.js"
 }
