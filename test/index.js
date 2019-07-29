@@ -65,7 +65,7 @@ describe('library - html purifier', function() {
    */
 
   it('should discard nested selectors', function(done) {
-    this.timeout(5000);
+    this.timeout(7000);
     var options = { prefix: 'abc', postfix: 'ugc' };
     var text = '@media only screen {div{display:block}\n';
     text = repeat(text, 100);
