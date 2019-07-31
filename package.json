@@ -1,6 +1,6 @@
 {
   "name": "html5-purifier",
-  "version": "0.8.9",
+  "version": "0.8.10",
   "description": "Purify unsafe HTML and CSS into standards compliant and namespaced code.",
   "keywords": [
     "html-purifier",
