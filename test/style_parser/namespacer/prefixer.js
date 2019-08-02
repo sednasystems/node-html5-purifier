@@ -99,6 +99,16 @@ describe('lib - html purifier - style parser - namespacer - prefixer', function(
         done();
       });
     });
+
+    it('should ignore badly formatted styles', function(done) {
+      var dirty = '#link ,#link2 #link3 #link4 #link5, p#test }margin-top:0;}';
+      var clean = '#link ,#link2 #link3 #link4 #link5, p#test }margin-top:0;}';
+
+      prefixer.prepend(dirty, PREFIX, null, messageId, function(err, prefixed) {
+        expect(prefixed).to.equal(clean);
+        done();
+      });
+    });
   });
 
   describe('strip', function() {
