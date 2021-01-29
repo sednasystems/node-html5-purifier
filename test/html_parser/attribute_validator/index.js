@@ -62,11 +62,11 @@ describe('library - html purifier - html parser - attribute validator - validato
     });
 
     it('should keep html entities', function(done) {
-      var dirty = '<span style="font-family: &#34;courier new&#34;">hello world</span>';
+      var dirty = '<span style="font-family: \'courier new\'">hello world</span>';
 
       validator.validate(dirty, function(err, validated) {
         expect(err).to.be.equal(null);
-        expect(validated).to.be.equal('<span style="font-family: &#34;courier new&#34;">hello world</span>');
+        expect(validated).to.be.equal('<span style="font-family: \'courier new\'">hello world</span>');
         done();
       });
     });

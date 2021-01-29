@@ -56,7 +56,7 @@ describe('library - html purifier - html parser - sanitizer - sanitizer', functi
   });
 
   it('should not sanitize fonts', function(done) {
-    var dirty = '<span style=\'font-family: \"Courier New\"\'>hello world</span>';
+    var dirty = '<span style="font-family: \'Courier New\'">hello world</span>';
 
     sanitizer.sanitize(dirty, function(err, sanitized) {
       expect(sanitized).to.be('<span style="font-family: &#34;courier new&#34;">hello world</span>');
