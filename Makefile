@@ -16,8 +16,9 @@ h help:
 
 cov coverage:
 	@rm -rf $(coverage_dir)
-	@NODE_ENV=test $(CURDIR)/node_modules/istanbul/lib/cli.js cover --dir $(coverage_dir) \
+	@NODE_ENV=test $(CURDIR)/node_modules/.bin/nyc --report-dir $(coverage_dir) \
 		node_modules/.bin/_mocha -- -R dot --recursive test
+	./node_modules/.bin/nyc --report-dir $(coverage_dir) report --reporter=lcov
 .PHONY: cov coverage
 
 tags:
@@ -30,6 +31,10 @@ t test:
 		--recursive $(test_dir) \
 		--reporter $(REPORTER)
 .PHONY: t test
+
+vc view-coverage:
+	open $(coverage_dir)/lcov-report/index.html
+.PHONY: vc view-coverage
 
 tw test-watch:
 	@rm -rf $(coverage_dir)
