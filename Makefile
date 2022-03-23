@@ -18,6 +18,7 @@ cov coverage:
 	@rm -rf $(coverage_dir)
 	@NODE_ENV=test node $(CURDIR)/node_modules/.bin/nyc --dir $(coverage_dir) \
 		node_modules/.bin/_mocha -- -R dot --recursive test
+	./node_modules/.bin/nyc report --reporter=lcov
 .PHONY: cov coverage
 
 tags:
