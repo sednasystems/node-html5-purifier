@@ -16,7 +16,7 @@ h help:
 
 cov coverage:
 	@rm -rf $(coverage_dir)
-	@NODE_ENV=test $(CURDIR)/node_modules/istanbul/lib/cli.js cover --dir $(coverage_dir) \
+	@NODE_ENV=test node $(CURDIR)/node_modules/.bin/nyc --dir $(coverage_dir) \
 		node_modules/.bin/_mocha -- -R dot --recursive test
 .PHONY: cov coverage
 
