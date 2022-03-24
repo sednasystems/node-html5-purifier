@@ -28,14 +28,14 @@
   },
   "dependencies": {
     "async": "1.5.2",
-    "css": "^3.0.0",
+    "css": "2.2.1",
     "google-caja-sanitizer": "git+ssh://git@github.com:stage3systems/google-caja-sanitizer#v1.1.1",
-    "underscore": "^1.13.2"
+    "underscore": "1.8.3"
   },
   "devDependencies": {
     "expect.js": "0.3.1",
-    "mocha": "^9.2.2",
-    "nyc": "^15.1.0",
+    "istanbul": "0.4.3",
+    "mocha": "2.4.5",
     "sinon": "1.17.3",
     "winston": "3.2.1"
   },
