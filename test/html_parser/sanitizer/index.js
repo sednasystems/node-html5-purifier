@@ -73,4 +73,13 @@ describe('library - html purifier - html parser - sanitizer - sanitizer', functi
     });
   });
 
+  it('should keep img data', function(done) {
+    var dirty = '<img class="sedna-signature-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIVSURBVDhPhZJfSNNRFMe/v226qVOnTpfgn+G0IgJFFKeslNCHHgT/gqLg9pDh2yJ8jKGRICpIL4tUynyQhvgioRQRiaKgog9mDyo40Io0nDiWpvTrntN+Y83AD9zfPffe8z3n3nN+ElwuFSzeesh4DsAgxmX4IMku6ALPJLyyNwqhJ3iAKzGJsFtsKDddQ26CCTv+Ayzub2Nka5btEDKeSBi1HwqTM9rS8jB1x4l13x70Gi2+/TzCzaQMZMQm4Vz+jeZZNya8y+TKqMT4R3hv4QVuzfSg+E0XDk79HIQyE+O3O9CQXcQ2QWK+6nTlQzxYGg9Fpkzvv27wuupdH2o/PIXvV4ADFCRnsQ+L6Y2UoSQ1hzcVXm7PoWNxlO2WnFIYomOhkVS4f7WC91hMxSGM2nieI3Fb29BkLmEhUWG6zjOvqKpETVYhajIL2SboNg3ZxWgVWcNR/DX0oRbkxqdx5KEyB3wfA1zhMVs7VzwSpWWcWakmYdTqMVTqYLv/0wyMuotPUfypz7JZb8RmbW/oTQrLP3a4wuRsTbWgMv0G71Mr575v/s1M16AfgNoTTlGKmedHa5NwzA9jN3DI7SQhIcTSCRnUz/8FoMyPC+qwWt2NAfGMwc9vgyeAGnX5xyLAXVpsHH3B1O4aH+g1Ohi0cdCpo+A/P0Xnymt4vEt8xsgYk+BpjMZJXK9YOIPblyOEOFM7/wCFk72VnT/DRQAAAABJRU5ErkJggg==" width="18px" height="18px">';
+    sanitizer.sanitize(dirty, function(err, sanitized) {
+      expect(err).to.be.equal(null);
+      expect(sanitized).to.be.equal('<img class="sedna-signature-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIVSURBVDhPhZJfSNNRFMe/v226qVOnTpfgn+G0IgJFFKeslNCHHgT/gqLg9pDh2yJ8jKGRICpIL4tUynyQhvgioRQRiaKgog9mDyo40Io0nDiWpvTrntN+Y83AD9zfPffe8z3n3nN+ElwuFSzeesh4DsAgxmX4IMku6ALPJLyyNwqhJ3iAKzGJsFtsKDddQ26CCTv+Ayzub2Nka5btEDKeSBi1HwqTM9rS8jB1x4l13x70Gi2+/TzCzaQMZMQm4Vz+jeZZNya8y+TKqMT4R3hv4QVuzfSg+E0XDk79HIQyE+O3O9CQXcQ2QWK+6nTlQzxYGg9Fpkzvv27wuupdH2o/PIXvV4ADFCRnsQ+L6Y2UoSQ1hzcVXm7PoWNxlO2WnFIYomOhkVS4f7WC91hMxSGM2nieI3Fb29BkLmEhUWG6zjOvqKpETVYhajIL2SboNg3ZxWgVWcNR/DX0oRbkxqdx5KEyB3wfA1zhMVs7VzwSpWWcWakmYdTqMVTqYLv/0wyMuotPUfypz7JZb8RmbW/oTQrLP3a4wuRsTbWgMv0G71Mr575v/s1M16AfgNoTTlGKmedHa5NwzA9jN3DI7SQhIcTSCRnUz/8FoMyPC+qwWt2NAfGMwc9vgyeAGnX5xyLAXVpsHH3B1O4aH+g1Ohi0cdCpo+A/P0Xnymt4vEt8xsgYk+BpjMZJXK9YOIPblyOEOFM7/wCFk72VnT/DRQAAAABJRU5ErkJggg==" width="18px" height="18px">');
+      done();
+    });
+  });
+
 });
